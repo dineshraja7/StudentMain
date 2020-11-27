@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Subject</title>
+
+    <style>
+         #subject{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#subject td, #subject th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#subject tr:nth-child(even){background-color: #f2f2f2;}
+
+#subject tr:hover {background-color: orange;}
+
+#subject th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0985e3;
+  color: white;
+}
+
+#h1 {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #9500ff;
+}
+
+    </style>
+</head>
+<body>
+
+<h1 id="h1">Subjects in RRD</h1>
+<div th:switch =${subjects}>
+    <table id = "subject">
+        <thead>
+        <tr>
+            <th>Subject ID</th>
+            <th>Subject Name</th>
+            <th>Handling Staff</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each ="subject:${subjects}">
+            <td th:text="${subject.subjectId}"></td>
+            <td th:text="${subject.subjectName}"></td>
+            <td th:text="${subject.handlingStaff}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
